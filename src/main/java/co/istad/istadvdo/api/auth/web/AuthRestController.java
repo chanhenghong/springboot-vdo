@@ -17,6 +17,7 @@ import java.sql.Timestamp;
 @RequiredArgsConstructor
 public class AuthRestController {
 
+    // Inject authService
     private final AuthServiceImpl authService;
 
     @PostMapping("register")

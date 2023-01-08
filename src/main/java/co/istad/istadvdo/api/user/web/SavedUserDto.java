@@ -3,20 +3,12 @@ package co.istad.istadvdo.api.user.web;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public record SavedUserDto(Integer id,
-                           String uuid,
-                           String username,
-                           String email,
-                           String familyName,
-                           String givenName,
-                           LocalDate dob,
-                           String gender,
-                           String phone,
-                           String profile,
-                           String biography,
-                           String password,
-                           String verifiedToken,
-                           LocalDateTime tokenExpiry,
-                           LocalDateTime createdAt,
-                           Boolean status) {
+public record SavedUserDto(
+        String username,
+        String familyName,
+        String givenName,
+        String gender,
+        String phone,
+        String biography,
+        Boolean status) {
 }

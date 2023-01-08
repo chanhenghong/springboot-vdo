@@ -1,5 +1,6 @@
 package co.istad.istadvdo.api.user.web;
 
+import co.istad.istadvdo.api.base.Rest;
 import co.istad.istadvdo.api.user.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +15,10 @@ public class UserRestController {
 
     private final UserServiceImpl userService;
 
-
     @PostMapping
-    void saveUser(@RequestBody SavedUserDto savedUserDto) {
-        userService.saveUser(savedUserDto);
+    Rest<UserDto> saveUser(@RequestBody SavedUserDto savedUserDto) {
+        UserDto userDto = userService.saveUser(savedUserDto);
+        return null;
     }
 
 }

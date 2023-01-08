@@ -1,5 +1,6 @@
 package co.istad.istadvdo.api.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.time.LocalDate;

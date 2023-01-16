@@ -3,6 +3,7 @@ package co.istad.istadvdo.api.user;
 import co.istad.istadvdo.api.user.web.SavedUserDto;
 import co.istad.istadvdo.api.user.web.UpdateUserDto;
 import co.istad.istadvdo.api.user.web.UserDto;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ public interface UserService {
 
     UserDto saveUser(SavedUserDto savedUserDto);
 
-    List<UserDto> findUsers();
+    PageInfo<UserDto> findUsers(int pageNum, int pageSize);
 
     UserDto findUserByUuid(String uuid);
 

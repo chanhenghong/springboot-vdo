@@ -4,6 +4,7 @@ import co.istad.istadvdo.api.auth.AuthServiceImpl;
 import co.istad.istadvdo.api.base.Rest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,21 +22,19 @@ public class AuthRestController {
     private final AuthServiceImpl authService;
 
     @PostMapping("register")
-    Rest<AuthDto> register(@RequestBody RegisterDto registerDto) {
+    Rest<?> register(@RequestBody RegisterDto registerDto) {
 
         log.info("Register DTO = {}", registerDto);
 
         var authDto = authService.register(registerDto);
 
-        var rest = new Rest<>(
-                "Registered succesfully",
-                true,
-                200,
-                new Timestamp(System.currentTimeMillis()),
-                authDto
-        );
-
-        return rest;
+        return Rest.builder()
+                .status(true)
+                .message("You have retrieved user successfully")
+                .code(HttpStatus.OK.value())
+                .timestamp(new Timestamp(System.currentTimeMillis()))
+                .data(authDto)
+                .build();
     }
 
 }

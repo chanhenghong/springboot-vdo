@@ -2,6 +2,7 @@ package co.istad.istadvdo.api.user.web;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public record UserDto(
         String uuid,
@@ -15,5 +16,6 @@ public record UserDto(
         String profile,
         String biography,
         LocalDateTime createdAt,
-        Boolean status) {
+        Boolean status,
+        List<RoleDto> roles) {
 }

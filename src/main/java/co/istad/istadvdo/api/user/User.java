@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class User {
@@ -24,4 +25,7 @@ public class User {
     private LocalDateTime tokenExpiry;
     private LocalDateTime createdAt;
     private Boolean status;
+
+    // a user has many roles
+    List<Role> roles;
 }
